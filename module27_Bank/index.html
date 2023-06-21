@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+
+    <header>
+
+        <h1 class="text-5xl  text-center mt-6" >Bank  
+            <span class="font-semibold">Southeast University</span></h1>   
+    </header>
+ 
+    <main>
+        <section class="bg-red-700   w-9/12 mx-auto mt-10 p-8">
+            <h3 class="text-3xl mb-4">Please Login</h3>
+            <div class=" " >
+                <input id="email" class="w-9/12 block mb-4 px-5 py-3 " type="email" placeholder="Your email">
+                <input id="password" class="w-9/12 block mb-4 px-5 py-3 " type="password" placeholder="Your password">
+           
+                <button id="btn" class="bg-blue-400 px-4 py-2  rounded-lg hover:bg-sky-700">Submit</button>
+           
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <script>
+
+      document.getElementById('btn').addEventListener('click',function(){
+
+        const mail=document.getElementById('email');
+        const emailValue=mail.value;
+
+        const pass=document.getElementById('password');
+        const passValue=pass.value;
+
+        if(emailValue==='js@gmail.com' && passValue==='123'){
+
+            console.log("Valid user");
+            location.href='main.html';
+        }
+        else{
+            console.log("invalid");
+            alert("Invalid User");
+        }
+        
+
+        console.log(emailValue);
+
+
+      })
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .textarea{
+        height: 100px;
+        width: 200px;
+        border: 1px solid;
+        margin-top: 30px;
+    }
+</style>
+
+<body>
+
+
+    <div id="main">
+        <h1>Please add your comment</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, ratione!</p>
+        
+      </div>
+    
+        <textarea name="" id="input" cols="30" rows="10" ></textarea><br>
+        <button id="btn">Comment</button>
+ 
+    
+       <input type="text" id="text">
+
+
+
+
+       <br><br><br>
+       <input type="text" id="b" placeholder="b=10"> &nbsp;&nbsp;&nbsp;
+       <input type="text" id="h" placeholder="h=5"><br><br>
+       <button id="cal">Calculate</button>
+
+
+<div id="textarea">
+   <h1>Calculation</h1>
+    
+
+</div>
+
+
+
+    <script>
+          
+ 
+ 
+
+
+document.getElementById('cal').addEventListener('click',function(){
+
+    const b=document.getElementById('b').value;
+    const h=document.getElementById('h').value;
+    const area=.5*b*h;
+    console.log(area);
+
+
+    const p=document.createElement('p');
+    p.innerText=area;
+
+    const txtarea=document.getElementById('textarea');
+          txtarea.appendChild(p);
+
+    
+
+
+})
+
+
+
+
+         document.getElementById('btn').addEventListener('click',function(){
+            const get=document.getElementById('input') ;
+            const val=get.value;
+           
+
+            const container=document.getElementById('main');
+
+            const createP=document.createElement('p');
+            createP.innerText=val;
+            container.appendChild(createP);
+
+            get.value=' ';
+
+ 
+
+
+
+         });
+
+ 
+         document.getElementById('text').addEventListener('keyup',function(event){
+            console.log(event.target.value);
+         })
+
+
+    </script>
+    
+</body>
+</html>

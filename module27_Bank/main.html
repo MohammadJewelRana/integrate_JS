@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <header>
+
+        <h1 class="text-5xl  text-center mt-6" >Let's get  
+            <span class="font-semibold">Money!!!</span></h1>   
+    </header>
+ 
+    <main>
+
+        <section class="mt-12">
+            <div class="grid grid-cols-3 gap-4 w-9/12 mx-auto">
+              
+                <div class="bg-green-600 p-8 rounded-xl">
+                    <h1 class="text-3xl text-blue pb-3">Deposit</h1>
+                    <h2   class="text-5xl text-white">$ <span id="initial-deposit">00</span>  </h2>
+                </div>
+
+                <div class="bg-red-600 p-8 rounded-xl">
+                    <h1 class="text-3xl text-blue pb-3 ">Withdraw</h1>
+                    <h2  class="text-5xl text-white">$ <span id="initial-withdraw">00</span> </h2>
+                </div>
+
+                <div class="bg-yellow-600 p-8 rounded-xl">
+                    <h1 class="text-3xl text-blue pb-3">Balance</h1>
+                    <h2  class="text-5xl text-white">$ <span id="initial-balance">1240</span></h2>
+                </div>
+ 
+            </div>
+
+
+
+            <div class="grid grid-cols-2 gap-4 mt-20 w-9/12 h-36 mx-auto">
+                <div class="bg-pink-600 p-8 rounded-xl">
+                   <h1 class="text-3xl mb-4">Please Deposit</h1>
+                   <input id="din" class="p-2 w-9/12 rounded-md block" type="text" placeholder="Amount you want to deposit">
+                  <button id="deposit" class="bg-blue-600 mt-4 px-4 py-2 rounded-xl text-white hover:bg-sky-700">Deposit</button>
+             
+                </div>
+
+                <div class="bg-green-300 p-8 rounded-xl">
+                    <h1 class="text-3xl mb-4">Please Withdraw</h1>
+                   <input id="wiin" class="p-2 w-9/12 rounded-md block" type="text" placeholder="Amount you want to withdraw">
+                  <button id="withdraw" class="bg-blue-600 mt-4 px-4 py-2 rounded-xl text-white hover:bg-yellow-700">Withdraw</button>
+             
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+
+    <script>
+
+        //withdraw button
+        document.getElementById('withdraw').addEventListener('click',function(){
+            const get=document.getElementById('wiin');
+            const getWithdraw=get.value;
+            const getWithdrawValue=parseFloat(getWithdraw);
+
+           //convert withdraw to number
+           const initialWithdraw=document.getElementById('initial-withdraw');
+          const withD=initialWithdraw.innerText;
+          const preWithdraw=parseFloat(withD);
+
+          const initialBalance=document.getElementById('initial-balance');
+         const bal=initialBalance.innerText;
+         const preBalance=parseFloat(bal);
+ 
+         get.value='';
+
+         //validity check is it a number??
+         if(isNaN(getWithdrawValue)){
+            alert("provide a number");
+            return;
+         }
+
+
+ 
+
+ 
+
+          if(getWithdrawValue>preBalance){
+            alert("Insufficient balance");
+           // return; //also use return 
+          }
+          else{
+
+            const total=getWithdrawValue+preWithdraw;
+            initialWithdraw.innerText=total;
+
+
+            const newTotalBalance=preBalance-total;
+            initialBalance.innerText=newTotalBalance;
+          }
+
+
+
+
+        
+
+        })
+
+
+        //deposit button
+        document.getElementById('deposit').addEventListener('click',function(){
+           //get input field value
+           const getDeposit=document.getElementById('din');
+            const getDepositValue=getDeposit.value;
+           // console.log(typeof getDepositValue);
+
+           //convert into number the text field
+            const newAmount=parseFloat(getDepositValue);
+           // console.log(typeof newAmount);
+
+        //get inner text and convert string into number
+           const initialDeposit=document.getElementById('initial-deposit');
+           const dep=initialDeposit.innerText;
+           const preDeposit=parseFloat(dep);         
+         // console.log(typeof dep);
+         const initialBalance=document.getElementById('initial-balance');
+         const bal=initialBalance.innerText;
+         const preBalance=parseFloat(bal);
+ 
+
+         //add to the deposite amount
+           const newDepositValue=newAmount+preDeposit;
+           initialDeposit.innerText=newDepositValue;
+
+         //add to the total balance
+           const total=preBalance+newAmount;
+           initialBalance.innerText=total;
+
+
+
+                //clear all field
+                getDeposit.value='' ;
+
+        })
+
+
+
+     
+
+
+    </script>
+
+
+</body>
+</html>

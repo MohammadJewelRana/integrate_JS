@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classlist</title>
+</head>
+ 
+<style>
+    .hide{
+       display: none;
+    }
+</style>
+
+<body>
+    
+<h1 id="h1">My secret info</h1>
+<input type="text" id="txt">
+<button id="btn-del">Delete</button>
+ 
+
+<br><br>
+<h1>Explore More</h1>
+<button id="btn">Events</button>
+<input type="text" id="text" >
+    
+<script>
+
+
+    document.getElementById('btn-del').addEventListener('click',function( ){
+        console.log( "clicked");
+        const geth1=document.getElementById('h1');
+        geth1.style.display='none';//first way
+        geth1.classList.add('hide');//second way
+
+    })
+
+   
+
+
+
+
+
+    // document.getElementById('btn').addEventListener('click',function(){
+    //     console.log("Trigered");
+    // })
+    // // document.getElementById('text').addEventListener('focus',function(){
+    // //     console.log("focused");
+    // // })
+ 
+
+    // document.getElementById('text').addEventListener('keyup',function(event){
+    //     console.log(event.target.value);
+    // })
+
+
+
+</script>
+
+
+
+<script src="index.js"></script>
+</body>
+</html>
